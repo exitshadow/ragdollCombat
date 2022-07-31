@@ -35,7 +35,7 @@ public class HitOnClick : MonoBehaviour
                 Vector3 incomingVec = hit.point - hitOrigin.position;
                 Vector3 reflectVec = Vector3.Reflect(incomingVec, hit.normal);
 
-                hit.collider.GetComponent<Rigidbody>().AddForce(reflectVec * strength * -1 * timeClickHold, ForceMode.Impulse);
+                hit.collider.GetComponent<Rigidbody>().AddForce(incomingVec.normalized * strength * timeClickHold, ForceMode.Impulse);
             }
         }
     }
